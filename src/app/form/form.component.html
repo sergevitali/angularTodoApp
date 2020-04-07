@@ -1,0 +1,41 @@
+
+<mat-card class="card">
+    <div class="card-header">
+        <div>
+            <h2 mat-card-title>To-do List</h2>
+        </div>
+        <div>
+            <mat-icon class="icon" aria-hidden="false" aria-label="Example thumbs up SVG icon">notes</mat-icon>
+        </div>
+    </div>
+    <form class="todo-form">
+        <span *ngIf="flag" class="error-message">Cannot be added without to-do!</span>    
+        <mat-form-field class="todo-full-width" appearance="outline">
+            <input  matInput placeholder="Input a to-do" 
+                    type="text" 
+                    [(ngModel)]="todoItemInput" 
+                    name="todoItemInput"
+                    (keydown)="onKeydown($event)">
+        </mat-form-field>
+        <button type="submit" mat-stroked-button (click)='addTodo()'>Add To-do</button>
+    </form>
+    <div class="todo-list">
+        <h3>To-do list to complete - {{ itemCounter }} </h3>
+        <mat-divider [inset]="true"></mat-divider>
+        <div class="todoItem"
+            *ngFor='let todo of todos; let i=index;' >
+            <ul> <li class="item-list">
+                    <div> 
+                        {{ todo.todoItem }}  
+                    </div>
+                    <div (click)='removeTodo(i)'>
+                        <mat-icon  class="icon icon-delete" aria-hidden="false" aria-label="deleteButton">delete</mat-icon>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</mat-card>
+
+
+

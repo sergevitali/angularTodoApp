@@ -1,0 +1,15 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+  }
+
+  .toolbar {
+    background-color: #424874;
+    height:80px;
+  }
+
+  .toolbar-h1 {
+    text-transform: uppercase;
+    font-size:1.5rem;
+    margin: 10px 0 10px 10px;
+    color:white;
+  }
